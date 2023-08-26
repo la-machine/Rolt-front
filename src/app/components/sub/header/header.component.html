@@ -1,0 +1,13 @@
+<header class="flex justify-between bg-amber-700 px-10 fixed top-0 z-10 text-white w-full">
+    <img class="my-2 w-14" src="../../../../assets/img/rolt.png"/>
+    <button (click)="toogleNav()">
+        <img class="my-2 w-16 hidden max-[760px]:block" src="../../../../assets/img/menu-bar.png"/>
+    </button>
+    <div class="flex w-fit max-[760px]:flex-col max-[760px]:absolute nav slide-out" id="nav">
+        <div class="mx-5 mt-10 font-medium text-xl max-[870px]:mx-2"><a href="">Home</a></div>
+        <div class="mx-5 mt-10 font-medium text-xl max-[870px]:mx-2"><a href="">Services</a></div>
+        <div class="mx-5 mt-10 font-medium text-xl max-[870px]:mx-2"><a href="">About Us</a></div>
+        <div class="mx-5 mt-10 font-medium text-xl max-[870px]:mx-2"><a href="">Contact Us</a></div>
+        <div class="bg-sky-800 text-xl px-5 font-medium mx-auto my-3 h-fit py-4 rounded-full ml-5 max-[770px]:ml-2"><a href="">Login/Register</a></div>
+    </div>
+</header>
