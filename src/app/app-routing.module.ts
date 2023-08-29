@@ -9,7 +9,7 @@ const routes: Routes  = [
   },
   { path: 'signup',
   loadComponent: () => import('./components/main/registration/registration.component').then((mod) => mod.RegistrationComponent)
-  }
+  },
 ];
 
 @NgModule({
