@@ -1,0 +1,246 @@
+<section id="banner"  class="max-w-screen sec-1 h-full lgl:h-screen mx-auto bg-bodycolor bottom-0 lgl:py-32 flex flex-col gap-8">
+    <div class="flex flex-col justify-center lgl:flex-row gap-10 m-auto">
+        <div class="w-full lgl:w-1/2 justify-evenly text-base text-white font-medium 
+        flex flex-col gap-4 mx-5 my-auto">
+            <h2 class="text-5xl ">REMOTE OBTENSION OF LAND TITLE</h2>
+            <p class="mt-10">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
+                tempor incididut labore et dolore magna aliqua,magna aliqua. 
+                ipsum is simply dummy text of the printing.
+            </p>
+            <div class="flex flex-col xs:flex-row gap-6">
+                <a href="">
+                    <button class="px-4 py-2 rounded-md text-white text-[13] border border-textGreen
+                    hover:bg-white hover:text-textBlue bg-textBlue duration-300">
+                        Contact Us
+                    </button>
+                </a>
+                <a href="">
+                    <button class="px-4 py-2 rounded-md text-textBlue text-[13] border border-textGreen
+                    hover:bg-textBlue hover:text-white duration-300">
+                        Obtension Procedure
+                    </button>
+                </a>
+            </div>
+        </div>
+        <div class="w-full lgl:w-1/2 h-80 relative group">
+            <div class="w-full absolute mdl:mx-auto -top-6 rounded-lg">
+                <div class="w-full h-full relative z-20 flex pl-6 lgl:pl-0 mx-auto justify-center">
+                    <img src="../../../../assets/img/home-illustration.svg" alt="illustration">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <img src="" alt=""> -->
+    <img class="relative h-full w-screen bottom-0 top-6 lgl:-top-40 lgl:bottom-20 " src="../../../../assets/img/home-bottom-shape.png" />
+</section>
+
+ <!-- jm  m  ;;/ -->
+<section id="requirements" class="max-w-contentContainer mx-auto py-10 lgl:py-24">
+    <h1 class="font-titleFont text-textBlue text-3xl font-semibold flex justify-center items-center"> Required Files for Land Tilte request</h1>
+    <div class="w-full mt-10 flex flex-col md:flex-row gap-16">
+        <ul class="md:w-32 mt-20 flex flex-col">
+            <li (click)="handleInfor('direct')" class= "border-l-2 border-l-bodycolor text-textGreen border-l-textDark  text-textDark  bg-transparent hover:bg-[#112240] py-3
+            text-sm cursor-pointer duration-300 px-8 font-medium text-textDark"> Direct Imatriculation</li>
+            <li (click)="handleInfor('transfer')" class="border-l-2 border-l-textGreen text-textBlue border-l-textDark  text-textDark  bg-transparent hover:bg-[#112240] py-3
+            text-sm cursor-pointer duration-300 px-8 font-medium text-textDark"> Transfer of ownership</li>
+        </ul>
+        <div *ngIf="direct" id="imatriculate">
+            <h2 class="flex gap-1 font-medium  text-xl font-titleFont">For Lands that doesn't yet have</h2>
+            <span class="text-textGreen tracking-wide">Land Title</span>
+            <p class="text-sm mt-1 font-medium text-textDark">Any person entitled to apply for a land title on a dependence of the national domain must constitute a file including:</p>
+            <ul class="mt-6 flex flex-col gap-3">
+                <li class="text-base flex gap-2 text-textDark">
+                    <span class="text-textGreen h-[2px] w-[6px] mt-3 bg-textBlue"></span>
+                    An application in four (4) copies, the original of which is stamped, indicating the applicant’s full name, parentage, domicile, profession, marital status, nationality, the name under which the property is to be registered.
+                </li>
+                <li class="text-base flex flex-row gap-2 text-textDark">
+                    <span class="text-textGreen h-[2px] w-[6px] mt-3 bg-textBlue"> </span>
+                    The description of the property (location, surface area, nature of occupation or operation, estimate of its value, indication of the charges on it).
+                </li>
+                <li class="text-base flex gap-2 text-textDark">
+                    <span class="text-textGreen h-[2px] w-[6px] mt-3 bg-textBlue"></span>
+                    Provide a tax clearance certificate from the relevant tax authority to confirm that all applicable taxes related to the land have been paid
+                </li>
+                <li class="text-base flex gap-2 text-textDark">
+                    <span class="text-textGreen h-[2px] w-[6px] mt-3 bg-textBlue"></span>
+                    The mayor then make a public notice informing the public that you requested for a land title on that land
+                </li>
+                <li class="text-base flex gap-2 text-textDark">
+                    <span class="text-textGreen h-[2px] w-[6px] mt-3 bg-textBlue"></span>
+                    The mayor then set a date where the advisory commision will come and investigate on the Land to ascertain whether the applicant occupied the land before August 5, 1974.
+                </li>
+                <li class="text-base flex gap-2 text-textDark">
+                    <span class="text-textGreen h-[2px] w-[6px] mt-3 bg-textBlue"></span>
+                    If the land is highlighted and if it is the applicant who carried out this highlighting, if all of this is positive,
+                    the commission proceeds with the establishment of the terminals on the ground (This is done by the surveyor of the advisory commision).
+                </li>
+                <li class="text-base flex gap-2 text-textDark">
+                    <span class="text-textGreen h-[2px] w-[6px] mt-3 bg-textBlue"></span>
+                    If everything when on well the advisory commision then return and make a report which shall be examin for the creation of the land title.
+                </li>
+            </ul>
+        </div>
+        <div *ngIf="transfer" id="tranfer">
+            <h2 class="flex gap-1 font-medium  text-xl font-titleFont">For Lands that already have Land title</h2>
+            <span class="text-textGreen tracking-wide">Land title Transfer or parcel fragmentation</span>
+            <p class="text-sm mt-1 font-medium text-textDark">Notary</p>
+            <ul class="mt-6 flex flex-col gap-3">
+                <li class="text-base flex gap-2 text-textDark">
+                    <span class="text-textGreen h-[2px] w-[6px] mt-3 bg-textBlue"></span>
+                    Get a certificate of ownership: This document will give informations on the present owner of that land title
+                </li>
+                <li class="text-base flex gap-2 text-textDark">
+                    <span class="text-textGreen h-[2px] w-[6px] mt-3 bg-textBlue"></span>
+                    Get certificate of Urbanism: This will give the informations on whether the land belongs to the government
+                     (It shows the lands own by the government in that area).
+                </li>
+                <li class="text-base flex flex-row gap-2 text-textDark">
+                    <span class="text-textGreen h-[2px] w-[6px] mt-3 bg-textBlue"> </span>
+                    Obtain a Survey Plan: Once you have identified the land you wish to acquire, 
+                    you need to obtain a survey plan from a licensed surveyor. The survey plan shows the size and boundaries of the land.
+                </li>
+                <li class="text-base flex gap-2 text-textDark">
+                    <span class="text-textGreen h-[2px] w-[6px] mt-3 bg-textBlue"></span>
+                    Obtain a Certificate of Non-encumbrance: Its advisable to obtain a certificate of non-encumbrance from the land registry 
+                    to confirm that there are no outstanding debts or legal claims against the land.
+                </li>
+                <li class="text-base flex gap-2 text-textDark">
+                    <span class="text-textGreen h-[2px] w-[6px] mt-3 bg-textBlue"></span>
+                    Obtain a Transfer Tax Clearance: You must obtain a transfer tax clearance from the tax authorities 
+                    to confirm that all applicable taxes have been paid.
+                </li>
+                <li class="text-base flex gap-2 text-textDark">
+                    <span class="text-textGreen h-[2px] w-[6px] mt-3 bg-textBlue"></span>
+                    Submit the Application: The seller needs to write an apllication (Transfer or fragmentation) letter. This 
+                    letter should contain the seller,buyer and notary informations and also the amount agreed to buy the land.
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+<div class="row justify-content-md-center">
+    <div class="col-4">
+      <div class="card" style="width: '18rem'">
+        <div class="card-body">
+          <h5 class="card-title">Backend response</h5>
+          <p class="card-text">Content:</p>
+          <ul>
+            <li *ngFor="let line of data">{{line}}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="px-6 py-3">
+                    Product name
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Color
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Category
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Price
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Action
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    Apple MacBook Pro 17"
+                </th>
+                <td class="px-6 py-4">
+                    Silver
+                </td>
+                <td class="px-6 py-4">
+                    Laptop
+                </td>
+                <td class="px-6 py-4">
+                    $2999
+                </td>
+                <td class="px-6 py-4">
+                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                </td>
+            </tr>
+            <tr class="border-b bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    Microsoft Surface Pro
+                </th>
+                <td class="px-6 py-4">
+                    White
+                </td>
+                <td class="px-6 py-4">
+                    Laptop PC
+                </td>
+                <td class="px-6 py-4">
+                    $1999
+                </td>
+                <td class="px-6 py-4">
+                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                </td>
+            </tr>
+            <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    Magic Mouse 2
+                </th>
+                <td class="px-6 py-4">
+                    Black
+                </td>
+                <td class="px-6 py-4">
+                    Accessories
+                </td>
+                <td class="px-6 py-4">
+                    $99
+                </td>
+                <td class="px-6 py-4">
+                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                </td>
+            </tr>
+            <tr class="border-b bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    Google Pixel Phone
+                </th>
+                <td class="px-6 py-4">
+                    Gray
+                </td>
+                <td class="px-6 py-4">
+                    Phone
+                </td>
+                <td class="px-6 py-4">
+                    $799
+                </td>
+                <td class="px-6 py-4">
+                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    Apple Watch 5
+                </th>
+                <td class="px-6 py-4">
+                    Red
+                </td>
+                <td class="px-6 py-4">
+                    Wearables
+                </td>
+                <td class="px-6 py-4">
+                    $999
+                </td>
+                <td class="px-6 py-4">
+                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<table></table>

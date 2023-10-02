@@ -1,41 +1,68 @@
-import { CommonModule } from '@angular/common';
-import { HeaderComponent } from '../../sub/header/header.component';
-import { Component, NgModule } from '@angular/core';
+import {AuthService} from '../../../service/auth.service'
+
+import { Component, EventEmitter, Output} from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { authrequest } from 'src/app/classes/authrequest';
+import { userResponse } from 'src/app/classes/userResponse';
+import { UserService } from 'src/app/service/user.service';
 
 @Component({
   selector: 'app-login',
-  standalone:true,
-  imports:[CommonModule, ReactiveFormsModule],
   template:`<app-header></app-header>`,
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  submitted = false;
+  @Output() registerEvent = new EventEmitter();
+  @Output() onSubmitLoginEvent = new EventEmitter();
+
   form = this.fb.nonNullable.group({
     email:['', [Validators.required, Validators.email]],
     password:['', [Validators.required, Validators.minLength(6)]],
   });
-  error = '';
+  errorMessage = '';
   
-  constructor(private fb: FormBuilder){}
+  constructor(private fb: FormBuilder,private authService:AuthService,
+    private userAuthRespone : UserService, private router:Router){}
 
-  get f() {
-    return this.form.controls;
-  }
 
-  onSubmit(){
-    this.submitted=true;
-    const { email, password } = this.form.value;
-    if (this.form.invalid) {
-      return;
-    }
+  onSubmit(): void{
     console.log('SUBMIT: ', this.form.value);
-  }
-
-  createAccount(){
-    console.log('CREATE: ', this.form.value);
+    const {email, password} = this.form.getRawValue();
+    let authUser : authrequest = new authrequest();
+    
+    authUser.email = email;
+    authUser.password = password;
+    this.authService.login(authUser).subscribe((res: any)=> {
+			this.userAuthRespone.setAuthToken(res.token);
+      console.log(res);
+      // user.firstName = res.firstName;
+      // user.role = res.role;
+      let user : userResponse = new userResponse(res.firstName,res.role);
+      this.userAuthRespone.setAuthUser(user)
+      console.log(res.role);
+      switch (user.role){
+        case 'Admin':
+          this.router.navigate(['/admin'])
+          break;
+        case 'Mayor':
+          this.router.navigate(['/mayorDashboard'])
+          break;
+        case 'LandRegistry':
+          this.router.navigate(['/registryDashboard'])
+          break;
+        case 'Notary':
+          this.router.navigate(['/notaryDashboard'])
+          break;
+        default:
+          this.router.navigate(['dashboard'])
+          break;
+      }
+		},
+      (error) => {
+        this.errorMessage = error;
+    });
   }
 
 }

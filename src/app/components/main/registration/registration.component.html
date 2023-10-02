@@ -1,1 +1,233 @@
-<p>registration works!</p>
+<!-- <app-header></app-header> -->
+<div class="flex items-center justify-center  py-12 ">
+  
+    <div class="w-mdl max-w-md space-y-6 border-green-400 bg-hoverColor shadow-10 ">
+        <div class="mx-6">
+            <img src="../../../../assets/img/rolt.png" alt="ROLT" class="mx-auto w-auto h-20 ">
+            <h2 class="text-center text-3xl font-bold tracking-tight text-gray-500">Sign In</h2>
+            <p class="text-sm text-gray-400 dark:text-night-200 my-6">Enter your credential to access your account.</p>
+        </div>
+        <form class="mx-6 mt-8 space-y-6" (ngSubmit)="onSubmitForm()" [formGroup]="registrationForm">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <label for="firstName" class="sr-only" >First name</label>
+                    <input formControlName="firstName"
+                    id="firstName" name="firstName"  type="text" autocomplete="current-firstName" required
+                    class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 
+                    focus:z-10 focus:border-indigo-500 focus:outline-none " placeholder="Enter your first-Name"
+                    />
+                    <div
+                        *ngIf="registrationForm.get('firstName')?.invalid && registrationForm.get('firstName')?.touched"
+                        class="text-red-500"
+                        >
+                        First Name is required.
+                    </div>
+                </div>
+                <div>
+                    <label for="lastName" class="sr-only">Last Name</label>
+                    <input formControlName="lastName" id="lastName"
+                    name="lastName" type="text" autocomplete="current-lastName" required
+                    class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 
+                    focus:z-10 focus:border-indigo-500 focus:outline-none" placeholder="Enter your last name"
+                    />
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <label for="idCardNum" class="sr-only" >ID Card Number</label>
+                    <input formControlName="idCardNum"
+                    id="idCardNum" name="idCardNum"  type="text" autocomplete="current-idCardNum" required
+                    class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 
+                    focus:z-10 focus:border-indigo-500 focus:outline-none " placeholder="Enter your ID card number"
+                    />
+                    <div
+                        *ngIf="registrationForm.get('idCardNum')?.invalid && registrationForm.get('idCardNum')?.touched"
+                        class="text-red-500">
+                            Idcard number is required.
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mx-10">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <label for="year" class="sr-only">Year</label>
+                        <input formControlName="year" id="year" name="year" type="number" min="1900" max="2099" placeholder="Year" />
+                    
+                    <div
+                        *ngIf="registrationForm.get('year')?.invalid && registrationForm.get('year')?.touched"
+                        class="text-red-500"
+                        >
+                        Year of birth is required.
+                    </div>
+                    <!-- Month -->
+                        <div>
+                            <label for="month" class="sr-only">Month</label>
+                            <select formControlName="month" id="month" name="month">
+                                <option value="1">January</option>
+                                <option value="2">February</option>
+                                <option value="3">March</option>
+                                <option value="4">April</option>
+                                <option value="5">May</option>
+                                <option value="6">June</option>
+                                <option value="7">July</option>
+                                <option value="8">August</option>
+                                <option value="9">September</option>
+                                <option value="10">October</option>
+                                <option value="11">November</option>
+                                <!-- Add options for all months -->
+                                <option value="12">December</option>
+                            </select>
+                        </div>
+                        <div
+                            *ngIf="registrationForm.get('month')?.invalid && registrationForm.get('month')?.touched"
+                            class="text-red-500"
+                            >
+                            Month of birth is required.
+                        </div>
+                    </div>
+                    
+                    
+                    <!-- Day -->
+                    <div class="mx-14">
+                        <label for="day" class="sr-only">Day</label>
+                        <input formControlName="day" id="day" name="day" type="number" min="1" max="31" placeholder="Day" />
+                    </div>
+                    <div
+                        *ngIf="registrationForm.get('day')?.invalid && registrationForm.get('day')?.touched"
+                        class="text-red-500"
+                        >
+                        Day of birth is required.
+                    </div>
+                </div>
+            </div>
+ 
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <label for="email-address" class="sr-only" >Email address</label>
+                    <input formControlName="email"
+                    id="email-address" name="email"  type="email" autocomplete="email" required
+                    class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 
+                    focus:z-10 focus:border-indigo-500 focus:outline-none " placeholder="Email-address"
+                    />
+                    <div
+                        *ngIf="registrationForm.get('email')?.invalid && registrationForm.get('email')?.touched"
+                        class="text-red-500">
+                            Email is required.
+                    </div>
+                </div>
+                
+                <div>
+                    <label for="password" class="sr-only">Password</label>
+                    <input formControlName="password" id="password"
+                    name="password" type="password" autocomplete="current-password" required
+                    class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 
+                    focus:z-10 focus:border-indigo-500 focus:outline-none" placeholder="Password"
+                    />
+                    <div
+                        *ngIf="registrationForm.get('password')?.invalid && registrationForm.get('password')?.touched"
+                        class="text-red-500"
+                        >
+                        Password is required.
+                    </div>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <label for="email-address" class="sr-only" >Sex</label>
+                    <select formControlName="sex"
+                    id="sex" name="sex"
+                    class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 
+                    focus:z-10 focus:border-indigo-500 focus:outline-none "
+                    >
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                    <div
+                        *ngIf="registrationForm.get('sex')?.invalid && registrationForm.get('sex')?.touched"
+                        class="text-red-500">
+                            Sex is required.
+                    </div>
+                </div>
+                <div>
+                    <label for="tel" class="sr-only">tel</label>
+                    <input formControlName="tel" id="tel"
+                    name="tel" type="tel" autocomplete="current-tel" required
+                    class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 
+                    focus:z-10 focus:border-indigo-500 focus:outline-none" placeholder="Phone number"
+                    />
+                    <div
+                        *ngIf="registrationForm.get('tel')?.invalid && registrationForm.get('tel')?.touched"
+                        class="text-red-500"
+                        >
+                        phone number is required.
+                    </div>
+                </div>
+                
+                
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <label for="cardImg" class="sr-only">cardImg</label>
+                    <input (change)="handleFileInput($event, 'cardImg')" id="cardImg"
+                    name="cardImg" type="file" autocomplete="current-cardImg" required
+                    class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 
+                    focus:z-10 focus:border-indigo-500 focus:outline-none" placeholder="cardImg"
+                    />
+                    <div
+                        *ngIf="registrationForm.get('cardImg')?.invalid && registrationForm.get('cardImg')?.touched"
+                        class="text-red-500"
+                        >
+                        cardImage is required.
+                    </div>
+                </div>
+                <div>
+                    <label for="backCardImg" class="sr-only">backCardImg</label>
+                    <input (change)="handleFileInput($event, 'backCardImg')" id="backCardImg"
+                    name="backCardImg" type="file" autocomplete="current-backCardImg" required
+                    class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 
+                    focus:z-10 focus:border-indigo-500 focus:outline-none"
+                    />
+                    <div
+                        *ngIf="registrationForm.get('backCardImg')?.invalid && registrationForm.get('backCardImg')?.touched"
+                        class="text-red-500"
+                        >
+                        backCardImage is required.
+                    </div>
+                </div>
+            </div>
+            <div>
+                <label for="yourCardImg" class="sr-only">yourCardImg</label>
+                <input (change)="handleFileInput($event, 'yourCardImg')" id="yourCardImg"
+                name="yourCardImg" type="file" autocomplete="current-yourCardImg" required
+                class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 
+                focus:z-10 focus:border-indigo-500 focus:outline-none"
+                />
+            </div>
+            <!-- <div class="flex items-center justify-between space-x-3">
+                <div class="flex items-center">
+                  <input id="remember-me" name="remember-me" type="checkbox" />
+                  <label for="remember-me" class="ml-2 block text-sm text-gray-400 dark:text-night-200"> Remember me </label>
+                </div>
+            
+                <div class="text-sm">
+                  <a routerLink="/auth/forgot-password" class="font-medium text-textBlue hover:text-bodycolor cursor-pointer">
+                    Forgot your password?
+                  </a>
+                </div>
+              </div> -->
+              <!-- Submit Button -->
+            <button
+              type="submit"
+              [disabled]="registrationForm.invalid"
+            class="group relative mb-10 flex w-full justify-center rounded-md border border-transparent bg-textBlue py-2 px-4 text-sm font-medium text-white focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 hover:bg-bodycolor">
+            Register
+            </button>
+
+            <!-- Sign-up -->
+            <div class="text-sm text-gray-400 dark:text-night-200">
+            Already having an account? <a routerLink="/" href="signup" routerLinkActive="active" class="text-textBlue mx-auto cursor-pointer hover:text-bodycolor">Sign in</a>
+            </div>
+        </form>
+    </div>
+
+</div>
+<!-- <app-footer></app-footer> -->

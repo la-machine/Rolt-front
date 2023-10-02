@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { NavigationService } from 'src/app/service/navigation.service';
 
 @Component({
   selector: 'app-header',
@@ -6,14 +7,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  toogleNav = ()=>{
-    if (document.getElementById("nav")?.classList.contains("slide-in")){
-        document.getElementById("nav")?.classList.remove("slide-in")
-        document.getElementById("nav")?.classList.add("slide-out")
-    }
-    else{
-      document.getElementById("nav")?.classList.remove("slide-out")
-      document.getElementById("nav")?.classList.add("slide-in")
-    }
-  }
+
+  showMenu = false;
+
+  @Output() homeEvent = new EventEmitter();
+  @Output() serviceEvent = new EventEmitter();
+  @Output() aboutusEvent = new EventEmitter();
+  @Output() contactusEvent = new EventEmitter();
+  @Output() loginEvent = new EventEmitter();
+
+  constructor(public navigationService:NavigationService){}
+ 
 }
