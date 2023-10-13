@@ -9,7 +9,6 @@ import { UserService } from 'src/app/service/user.service';
 
 @Component({
   selector: 'app-login',
-  template:`<app-header></app-header>`,
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
@@ -42,27 +41,10 @@ export class LoginComponent {
       let user : userResponse = new userResponse(res.firstName,res.role);
       this.userAuthRespone.setAuthUser(user)
       console.log(res.role);
-      switch (user.role){
-        case 'Admin':
-          this.router.navigate(['/admin'])
-          break;
-        case 'Mayor':
-          this.router.navigate(['/mayorDashboard'])
-          break;
-        case 'LandRegistry':
-          this.router.navigate(['/registryDashboard'])
-          break;
-        case 'Notary':
-          this.router.navigate(['/notaryDashboard'])
-          break;
-        default:
-          this.router.navigate(['dashboard'])
-          break;
-      }
+        this.router.navigate(['dashboard/home']);     
 		},
       (error) => {
         this.errorMessage = error;
     });
   }
-
 }

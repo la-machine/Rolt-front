@@ -1,13 +1,25 @@
-import { ɵɵinject } from '@angular/core';
-import { CanActivateFn } from '@angular/router';
+import { inject, ɵɵinject } from '@angular/core';
+import { ActivatedRouteSnapshot, CanActivateFn, Router, RouterStateSnapshot } from '@angular/router';
 import { UserService } from '../service/user.service';
+import { map } from 'rxjs';
+import { AuthService } from '../service/auth.service';
 
 
-export const AuthGuard: CanActivateFn = (route, state) => {
-  const authService =  ɵɵinject(UserService);
-  if (authService.isLoggedIn()) {
-    return true; // If logged in, allow access to the route
-  } else {
-    return false; // If not logged in, deny access to the route
-  }
+export const AuthGuard: CanActivateFn = (
+  next: ActivatedRouteSnapshot,
+  state: RouterStateSnapshot
+) => {
+  const userService: UserService = inject(UserService);
+  const router: Router = inject(Router);
+
+  return userService.isLoggedIn().pipe(
+    map((status) => {
+      console.log(status);
+      if (status) {
+        return true;
+      }
+
+      return router.createUrlTree(['/login']);
+    })
+  );
 };

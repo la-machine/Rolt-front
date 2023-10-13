@@ -44,6 +44,6 @@ export class ServiceContentComponent implements OnInit{
         this.utmCoordinates.forEach((coordinate) => {
           marker([coordinate.northing, coordinate.easting]).addTo(this.map);
       });
-  })
+    })
   }
 }

@@ -11,7 +11,7 @@
     <app-login *ngIf="componentToShow == 'login'" (onSubmitLoginEvent)="onLogin($event)" 
     (registerEvent)="navigateToPage('register')"></app-login>
     <app-service-content *ngIf="componentToShow == 'service'"></app-service-content>
-    <app-registration *ngIf="componentToShow=='register'"></app-registration>
+    <app-register (loginEvent)="navigateToPage('login')" *ngIf="componentToShow=='register'"></app-register>
     <app-footer></app-footer>
 </div>
 

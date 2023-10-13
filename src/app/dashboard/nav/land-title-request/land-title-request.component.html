@@ -1,0 +1,40 @@
+<div class="fixed inset-0 flex items-center justify-center z-50">
+    <div class="modal-overlay"></div>
+    <div class="modal bg-white p-8 rounded shadow-lg z-50" (click)="$event.stopPropagation()">
+      <h2 class="text-2xl font-bold mb-4">Land Title Request Form</h2>
+      <form formGroup="landTitleForm" (ngSubmit)="onSubmit($event)">
+        <div class="form-group">
+          <label for="requestType">Request Name :</label>
+          <input type="text" class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 
+          focus:z-10 focus:border-indigo-500 focus:outline-none " formControlName="requestName" />
+        </div>
+        <div class="form-group">
+          <label for="date">Request Letter:</label>
+          <input type="file" class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 
+          focus:z-10 focus:border-indigo-500 focus:outline-none " formControlName="letter" />
+        </div>
+        <div class="form-group">
+          <label for="landLocation">Land Location:</label>
+          <input type="text" class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 
+          focus:z-10 focus:border-indigo-500 focus:outline-none " formControlName="landLocation" />
+        </div>
+        <div class="form-group">
+          <label for="dimension">Dimension:</label>
+          <input type="text" class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 
+          focus:z-10 focus:border-indigo-500 focus:outline-none " formControlName="dimension" />
+        </div>
+        <div>
+            <label for="tell">Payment Tell</label>
+            <input type="tel" class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 
+            focus:z-10 focus:border-indigo-500 focus:outline-none " formControlName="tell" />
+        </div>
+        <div>
+            <label for="amount">Amount</label>
+            <input value="5000Xaf" class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 
+            focus:z-10 focus:border-indigo-500 focus:outline-none " readonly/>
+        </div>
+        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none 
+        focus:shadow-outline-blue">Submit</button>
+      </form>
+    </div>
+  </div>

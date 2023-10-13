@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { NavigationService } from 'src/app/service/navigation.service';
 
 @Component({
   selector: 'app-header',
@@ -16,6 +15,6 @@ export class HeaderComponent {
   @Output() contactusEvent = new EventEmitter();
   @Output() loginEvent = new EventEmitter();
 
-  constructor(public navigationService:NavigationService){}
+  constructor(){}
  
 }

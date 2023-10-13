@@ -35,15 +35,17 @@ export class UserService {
   // }
 
   public getRole(): any {
-    const UserRole = localStorage.getItem('auth_role');
+    const UserRole = window.localStorage.getItem('auth_role');
+    console.log("User service testing getRole  ", UserRole);
     if(UserRole !== null){
-      return JSON.parse(UserRole);
+      // return JSON.parse(UserRole);
+      return UserRole;
     }
     return null;
   }
 
   public getUserName():any{
-    return localStorage.getItem('auth_name');
+    return window.localStorage.getItem('auth_name');
   }
 
   public clear() {
