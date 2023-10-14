@@ -33,31 +33,22 @@ export class AuthService {
     }
 
     signup(userRequest: AuthRegister){
-      const formData : FormData = new FormData();
-      formData.append("cardNum", userRequest.cardNum);
-      formData.append("firstName", userRequest.firstName);
-      formData.append("lastName", userRequest.lastName);
-      formData.append("sex", userRequest.sex);
-      formData.append("email",userRequest.email);
-      formData.append("tel", userRequest.tel);
-      formData.append("password", userRequest.password);
-      formData.append("dob",userRequest.dob);
-      formData.append("yourCard", userRequest.yourCard);
-      formData.append("backCardImg", userRequest.backCardImg);
-      formData.append("cardImg", userRequest.cardImg);
+      
     const httpOptions = {
     headers: new HttpHeaders({
       "Content-Type":"application/json",
       // "Authorization": "Bearer " + this.getAuthToken(), // If you have authentication
     }),}
     console.log("From the authService " + userRequest);
-     return this.http.post('http://localhost:8060/api/auth/register', formData).pipe(
+     return this.http.post('http://localhost:8060/api/auth/register', userRequest, httpOptions).pipe(
       catchError((error) => {
         // Handle authentication error here
         return throwError('Invalid credentials'); // Set your custom error message
       })
      );
     }
+
+    // getUsers()
 
   // request(method: string, url: string, data: any): Promise<any> {
   //     let headers: any = {"Content-Type":"application/json"};

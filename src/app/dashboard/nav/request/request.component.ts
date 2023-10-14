@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/service/user.service';
 import { LandTitleRequestComponent } from '../land-title-request/land-title-request.component';
+import { RequestService } from 'src/app/service/request.service';
+import { TitleRequest } from 'src/app/classes/TitleRequest';
 
 @Component({
   selector: 'app-request',
@@ -23,7 +25,7 @@ export class RequestComponent implements OnInit{
 
   isModalVisible: boolean = false;
 
-  constructor(private userService : UserService){}
+  constructor(private userService : UserService, private titlerequestService : RequestService){}
 
   
   openModal(): void {
@@ -34,10 +36,11 @@ export class RequestComponent implements OnInit{
     this.isModalVisible = false;
   }
 
-  onFormSubmit(formData: any): void {
+  onFormSubmit(titleRequest: TitleRequest): void {
     // Handle form submission logic here
     // Update your table data or call a service to save the data
-    console.log(formData);
+    this.titlerequestService.requestTitle(titleRequest);
+    console.log(titleRequest);
     this.closeModal();
   }
 

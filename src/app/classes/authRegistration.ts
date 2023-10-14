@@ -7,7 +7,7 @@ export class AuthRegister{
     email!: string;
     tel!: string;
     password!: string;
-    cardImg!: any;
-    backCardImg!: any;
-    yourCard!:any;
+    // cardImg!: any;
+    // backCardImg!: any;
+    // yourCard!:any;
 }

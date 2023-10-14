@@ -1,4 +1,9 @@
 <div class="p-4 sm:ml-64">
+  <div class="mt-4 mb-4">
+    <label for="idInput">Enter ID: </label>
+    <input type="text" id="idInput" (ngModel)="id">
+    <button (click)="fetchDataById()">Fetch Data</button>
+  </div>
   <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-14">
     <div class="container mx-auto">
         <div class="flex flex-row">

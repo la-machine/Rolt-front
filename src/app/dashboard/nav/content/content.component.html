@@ -1,6 +1,6 @@
 <div class="p-4 sm:ml-64">
     <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-14">
-       <div class="grid grid-cols-3 gap-4 mb-4">
+       <div *ngIf="showCitizenBoard" class="grid grid-cols-3 gap-4 mb-4">
           <div class="flex items-center justify-center h-24 rounded bg-textBlue dark:bg-gray-800">
              <p class="text-2xl text-gray-400 dark:text-gray-500">
                 <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-blue-500 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
@@ -23,7 +23,7 @@
              </p>
           </div>
        </div>
-       <div class="relative mt-20 overflow-x-auto shadow-md sm:rounded-lg">
+       <div *ngIf="showCitizenBoard || showNotaryBoard" class="relative mt-20 overflow-x-auto shadow-md sm:rounded-lg">
         <h1 class="font-titleFont text-textBlue text-3xl font-semibold flex justify-center items-center"> Pending Land Title Request For direct Immatriulation </h1><br>
             <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">

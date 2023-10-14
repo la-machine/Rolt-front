@@ -19,9 +19,6 @@ export class RegisterComponent {
     idCardNum: ['', Validators.required],
     sex: ['M', Validators.required],
     tel:['',Validators.required],
-    yourCardImg:[null,Validators.required],
-    backCardImg: [null, Validators.required],
-    cardImg: [null, Validators.required],
     year: ['', [Validators.required, Validators.pattern(/^[0-9]+$/)]],
     month: ['', [Validators.required, Validators.pattern(/^[0-9]+$/)]],
     day: ['', [Validators.required, Validators.pattern(/^[0-9]+$/)]],
@@ -42,18 +39,7 @@ export class RegisterComponent {
     if (this.registrationForm.invalid) {
       return;
     }
-    const {firstName,lastName,idCardNum,sex,yourCardImg,backCardImg,cardImg,year,month,day,email,password} = this.registrationForm.getRawValue();
-    // const formData : FormData = new FormData();
-    // formData.append("cardNum", idCardNum);
-    // formData.append("firstName", firstName);
-    // formData.append("lastName", lastName);
-    // formData.append("sex", sex);
-    // formData.append("email",email);
-    // formData.append("password", password);
-    // let dob: any = new Date(+year, +month-1, +day);
-    // formData.append("dob",dob);
-    // formData.append("yourCard", yourCardImg);
-    // formData.append("backCardImg", backCardImg, backCardImg.name);
+    const {firstName,lastName,idCardNum,sex,year,month,day,email,password} = this.registrationForm.getRawValue();
 
     let registrationRequest : AuthRegister = new AuthRegister();
     registrationRequest.cardNum = idCardNum;
@@ -62,16 +48,17 @@ export class RegisterComponent {
     registrationRequest.sex=sex;
     registrationRequest.email=email;
     registrationRequest.password=password;
-    registrationRequest.dob=new Date(+year, +month-1, +day);
-    registrationRequest.yourCard=yourCardImg;
-    registrationRequest.backCardImg=backCardImg;
-    registrationRequest.cardImg=cardImg;
+    registrationRequest.dob=`${year}-${('0' + month).slice(-2)}-${('0' + day).slice(-2)}`;
 
-    console.log("This is to test the img",registrationRequest.backCardImg);
+    console.log("This is to test the img",registrationRequest);
 
     this.authService.signup(registrationRequest).subscribe((res:any)=>{
       console.log(res);
-      this.route.navigate(['dashboard']);
+      if(res.status === "200"){
+        console.log("result successful ", res)
+        this.loginEvent.emit();
+      }
+      // this.route.navigate(['dashboard']);
     })
   }
 
