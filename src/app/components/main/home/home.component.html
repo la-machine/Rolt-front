@@ -1,0 +1,18 @@
+<div class="landing">
+    <app-header
+    (homeEvent)="navigateToPage('welcome')"
+    (loginEvent)="navigateToPage('login')"
+    (aboutusEvent)="navigateToPage('aboutus')"
+    (contactusEvent)="navigateToPage('contactus')"
+    (serviceEvent)="navigateToPage('service')"
+    ></app-header>
+    <app-welcom-content *ngIf="componentToShow == 'welcome'"></app-welcom-content>
+    <app-contactus-content *ngIf="componentToShow == 'contactus'"></app-contactus-content>
+    <app-login *ngIf="componentToShow == 'login'" (onSubmitLoginEvent)="onLogin($event)" 
+    (registerEvent)="navigateToPage('register')"></app-login>
+    <app-service-content *ngIf="componentToShow == 'service'"></app-service-content>
+    <app-register (loginEvent)="navigateToPage('login')" *ngIf="componentToShow=='register'"></app-register>
+    <app-footer></app-footer>
+</div>
+
+   

@@ -1,0 +1,89 @@
+<div class="p-4 sm:ml-64">
+  <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-14">
+    <div class="container mx-auto">
+        <div class="flex flex-row">
+          <div class="w-1/3">
+            <div class="text-center">
+              REPUBLIC DU CAMEROUN<br>
+              Paix-Travail-Patrie<br>
+              .............<br>
+              MINISTERE DES DOMAINES DU<br>
+              CADASTRE ET DES AFFAIRES FONCIERES<br>
+              .............<br>
+              DELEGATION REGIONAL DU CENTRE<br>
+              .............<br>
+              DELEGATION DEPARTEMENTALE DE<br>
+              LA MEFOU ET AFAMBA<br>
+              .............<br>
+              CONSERVATION FONCIERES DE<br>
+              LA MEFOU ET AFAMBA<br>
+            </div>
+          </div>
+          <div class="w-1/3">
+            <div class="text-center">
+              <img src="../../../../assets/img/mindcaflogo.png" alt="" class="w-48 mx-auto my-8">
+            </div>
+          </div>
+          <div class="w-1/3">
+            <div class="text-center">
+              REPUBLIC OF CAMEROON<br>
+              Peace-Work-FatherLand<br>
+              .............<br>
+              MINISTRY OF STATE PROPERTY,<br>
+              SURVEYS AND LAND TENURE<br>
+              .............<br>
+              REGIONAL DELEGATION OF THE CENTER<br>
+              .............<br>
+              DIVISIONAL DELEGATION OF<br>
+              MEFOU AND AFAMBA<br>
+              .............<br>
+              LANDS REGISTRATION OFFICE<br>
+              OF MEFOU AND AFAMBA<br>
+            </div>
+          </div>
+        </div>
+        <div class="text-center mt-8">
+          <h1 class="text-3xl font-bold">CERTIFICATE OF OWNERSHIP No_______/CP/MINDCAF/2/35/T600</h1><br>
+        </div>
+        <div class="my-4">
+          <p>
+            The Land Registrer office of state property and land tenure rights of the division of MEFOU and AFAMBA
+            undersigned certifies that the empty land which does not contain any building located here at <b>SOA</b>
+            precisely at <b>NKOLFOULOU II</b> of a surface area of 14 hectares immatriculated in the Land title register
+            of the division of the MEFOU and AFAMBA.
+          </p>
+        </div>
+        <div class="text-center mb-8">
+          The owner(s) of this land are:
+        </div>
+        <ul class="list-disc ml-8">
+          <!-- Use Angular *ngFor directive to loop through the fetched data and display it -->
+          <li *ngFor="let row of fetchedData">
+            Owner_name: {{ row.Owner_name }}<br>
+            Location: {{ row.Location }}<br>
+            Land size: {{ row.Size }}
+          </li>
+        </ul>
+        <div class="my-8">
+          The owner(s) of this land above acquired this property through <br>
+          This so-called Land title on which a duplicatum <b>No1</b> has been created and delivered
+          on this has been withdrawn based on the ridge that stipulates that <b>No 001599/Y.7/MINDCAF/SG/D6
+          of the 17/9/2023 of MINDCAF concerning the withdrawal of land titles then the establishment of a 
+          new land title on the profit of <!-- Name of the new land owner --> </b> is a judiciary prenotation
+          following the order No256/2015 of the TPI of the Division of MFOU following the request of
+          <!-- New Land owner name --> in accordance with the inscriptions of the Land Book of the 
+          Land registrers office establish due to the demand of <!-- New land owner --> for information.
+        </div>
+        <p>En foi de quoi the present certificate is been established to serve and valorize its right.</p>
+        <div class="text-right">
+          MFOU le: {{ currentDate }}
+        </div>
+        <div class="mt-4">
+          Cost: {{ fetchedData[0].Cost }}<br>
+          ID Num: {{ fetchedData[0].Id_land }}<br>
+          Validity: {{ fetchedData[0].Validity }}
+        </div>
+        <button id="download-pdf-btn" class="btn btn-primary mt-8">Download as PDF</button>
+      </div>
+  </div>
+</div>
